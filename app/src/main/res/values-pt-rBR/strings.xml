@@ -4,4 +4,8 @@
     <string name="welcome">Bem vindo!</string>
     <string name="your_name">Qual é o seu nome?</string>
     <string name="next">Próximo</string>
+    <string name="hi_userdatascreen">Olá!</string>
+    <string name="male_userdatasreen">Masculino</string>
+    <string name="female_userdatascreen">Feminino</string>
+    <string name="button_calculate_userdatascreen">Calcular</string>
 </resources>
