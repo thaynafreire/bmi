@@ -17,6 +17,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material.icons.filled.Height
+import androidx.compose.material.icons.filled.Scale
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -26,6 +28,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -175,13 +179,13 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                     }
                     Column (
                         modifier = Modifier
-                            .padding(32.dp)
+                            .padding(45.dp)
                             .fillMaxSize()
                     ){
                         OutlinedTextField(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(bottom = 25.dp),
+                                .padding(bottom = 20.dp),
                             shape = RoundedCornerShape(
                                 topStart = 15.dp,
                                 topEnd = 15.dp,
@@ -199,7 +203,68 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                                 )
                             }
                         )
+                        OutlinedTextField(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(bottom = 20.dp),
+                            shape = RoundedCornerShape(
+                                topStart = 15.dp,
+                                topEnd = 15.dp,
+                                bottomStart = 15.dp,
+                                bottomEnd = 15.dp,
+                            ),
+                            value = "",
+                            onValueChange = {},
+                            label = { Text(text = "Weight") },
+                            leadingIcon = {
+                                Icon(
+                                    imageVector = Icons.Default.Scale,
+                                    contentDescription = "",
+                                    tint = Color(0xff343434)
+                                )
+                            }
+                        )
+                        OutlinedTextField(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(bottom = 35.dp),
+                            shape = RoundedCornerShape(
+                                topStart = 15.dp,
+                                topEnd = 15.dp,
+                                bottomStart = 15.dp,
+                                bottomEnd = 15.dp,
+                            ),
+                            value = "",
+                            onValueChange = {},
+                            label = { Text(text = "Height") },
+                            leadingIcon = {
+                                Icon(
+                                    imageVector = Icons.Default.Height,
+                                    contentDescription = "",
+                                    tint = Color(0xff343434)
+                                )
+                            }
+                        )
+                        Button(
+                            onClick = {},
+                            shape = RoundedCornerShape(20.dp),
+                            colors = ButtonDefaults.buttonColors(
+                                Color(0xff70be6b)
+                            ),
+                            modifier = Modifier
+                                .padding(top = 10.dp)
+                                .width(180.dp)
+                                .height(45.dp)
+                                .align(Alignment.CenterHorizontally)
+                        ) {
+                            Text(
+                                text = stringResource(
+                                    R.string.button_calculate_userdatascreen
+                                )
+                            )
+                        }
                     }
+
                 }
             }
         }
