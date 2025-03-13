@@ -8,4 +8,6 @@
     <string name="male_userdatasreen">Masculino</string>
     <string name="female_userdatascreen">Feminino</string>
     <string name="button_calculate_userdatascreen">Calcular</string>
+    <string name="avatar_female">Avatar Feminino</string>
+    <string name="avatar_male">Avatar Masculino</string>
 </resources>

@@ -8,4 +8,6 @@
     <string name="male_userdatasreen">Male</string>
     <string name="female_userdatascreen">Female</string>
     <string name="button_calculate_userdatascreen">Calculate</string>
+    <string name="avatar_female">Avatar Female</string>
+    <string name="avatar_male">Avatar Male</string>
 </resources>
