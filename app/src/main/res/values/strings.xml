@@ -10,4 +10,14 @@
     <string name="button_calculate_userdatascreen">Calculate</string>
     <string name="avatar_female">Avatar Female</string>
     <string name="avatar_male">Avatar Male</string>
+    <string name="result_bmi">Your BMI Result</string>
+    <string name="imc_number">30,6</string>
+    <string name="class_imc">You have Class I Obesity.</string>
+    <string name="result_age">Age</string>
+    <string name="number_age">50</string>
+    <string name="result_Weight">Weight</string>
+    <string name="number_weight">97 kg</string>
+    <string name="result_high">High</string>
+    <string name="number_high">178 cm</string>
+    <string name="button_result">New Calc</string>
 </resources>

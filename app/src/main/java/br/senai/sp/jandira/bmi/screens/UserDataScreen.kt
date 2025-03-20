@@ -109,7 +109,7 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                             ){
                                 Image(
                                     painter = painterResource(
-                                        R.drawable.male_avatar
+                                        R.drawable.avatar_male
                                     ),
                                     contentDescription = stringResource(
                                         R.string.avatar_male
@@ -122,7 +122,7 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                                 onClick = {},
                                 shape = RoundedCornerShape(20.dp),
                                 colors = ButtonDefaults.buttonColors(
-                                    Color(0xff70be6b)
+                                    Color(0xff092fa5)
                                 ),
                                 modifier = Modifier
                                     .padding(top = 10.dp)
@@ -149,7 +149,7 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                             ){
                                 Image(
                                     painter = painterResource(
-                                        R.drawable.woman_avatar
+                                        R.drawable.avatar_female
                                     ),
                                     contentDescription = stringResource(
                                         R.string.avatar_female
@@ -162,7 +162,7 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                                 onClick = {},
                                 shape = RoundedCornerShape(20.dp),
                                 colors = ButtonDefaults.buttonColors(
-                                    Color(0xff70be6b)
+                                    Color(0xffff69b4)
                                 ),
                                 modifier = Modifier
                                     .padding(top = 10.dp)
@@ -247,9 +247,9 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                         )
                         Button(
                             onClick = {},
-                            shape = RoundedCornerShape(20.dp),
+                            shape = RoundedCornerShape(15.dp),
                             colors = ButtonDefaults.buttonColors(
-                                Color(0xff70be6b)
+                                Color(0xff6A4C9C)
                             ),
                             modifier = Modifier
                                 .padding(top = 10.dp)
