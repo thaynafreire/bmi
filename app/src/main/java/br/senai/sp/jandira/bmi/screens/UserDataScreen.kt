@@ -1,5 +1,6 @@
 package br.senai.sp.jandira.bmi.screens
 
+import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -34,6 +35,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -44,6 +46,25 @@ import br.senai.sp.jandira.bmi.R
 
 @Composable
 fun UserDataScreen(modifier: Modifier = Modifier){
+
+    //textfields escrever
+    var ageState = remember {
+        mutableStateOf("")
+    }
+    var weightState = remember {
+        mutableStateOf("")
+    }
+    var heightState = remember {
+        mutableStateOf("")
+    }
+
+    val context = LocalContext.current
+    val userFile = context
+        .getSharedPreferences("userFile", Context.MODE_PRIVATE)
+
+    val userName = userFile.getString("user_name", "")
+
+    val editor = userFile.edit()
 
     Box(
         modifier = Modifier
@@ -65,7 +86,7 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                     .padding(start = 35.dp),
                 text = stringResource(
                     R.string.hi_userdatascreen
-                ),
+                ) + ", $userName!",
                 color = Color(0xff343434),
                 fontSize = 32.sp,
                 fontWeight = FontWeight.SemiBold
@@ -183,6 +204,10 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                             .fillMaxSize()
                     ){
                         OutlinedTextField(
+                            value = ageState.value,
+                            onValueChange = {
+                                ageState.value = it
+                            },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(bottom = 20.dp),
@@ -192,9 +217,13 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                                 bottomStart = 15.dp,
                                 bottomEnd = 15.dp,
                             ),
-                            value = "",
-                            onValueChange = {},
-                            label = { Text(text = "Age") },
+                            label = {
+                                Text(
+                                text = stringResource(
+                                    R.string.user_age
+                                )
+                            )
+                                    },
                             leadingIcon = {
                                 Icon(
                                     imageVector = Icons.Default.DateRange,
@@ -204,6 +233,10 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                             }
                         )
                         OutlinedTextField(
+                            value = weightState.value,
+                            onValueChange = {
+                                weightState.value = it
+                            },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(bottom = 20.dp),
@@ -213,9 +246,13 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                                 bottomStart = 15.dp,
                                 bottomEnd = 15.dp,
                             ),
-                            value = "",
-                            onValueChange = {},
-                            label = { Text(text = "Weight") },
+                            label = {
+                                Text(
+                                    text = stringResource(
+                                        R.string.user_weight
+                                    )
+                                )
+                                    },
                             leadingIcon = {
                                 Icon(
                                     imageVector = Icons.Default.Scale,
@@ -225,6 +262,10 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                             }
                         )
                         OutlinedTextField(
+                            value = heightState.value,
+                            onValueChange = {
+                                heightState.value = it
+                            },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(bottom = 35.dp),
@@ -234,8 +275,6 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                                 bottomStart = 15.dp,
                                 bottomEnd = 15.dp,
                             ),
-                            value = "",
-                            onValueChange = {},
                             label = { Text(text = "Height") },
                             leadingIcon = {
                                 Icon(
@@ -246,7 +285,12 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                             }
                         )
                         Button(
-                            onClick = {},
+                            onClick = {
+                                editor.putInt("user_age", ageState.value.toInt())
+                                editor.putInt("user_weight", weightState.value.toInt())
+                                editor.putFloat("user_height", heightState.value.toFloat())
+                                editor.apply()
+                            },
                             shape = RoundedCornerShape(15.dp),
                             colors = ButtonDefaults.buttonColors(
                                 Color(0xff6A4C9C)
