@@ -5,6 +5,7 @@
     <string name="your_name">What\'s your name?</string>
     <string name="next">Next</string>
     <string name="hi_userdatascreen">Hi </string>
+    <string name="name_error_message">The username is required!</string>
     <string name="male_userdatasreen">Male</string>
     <string name="female_userdatascreen">Female</string>
     <string name="button_calculate_userdatascreen">Calculate</string>
@@ -15,12 +16,20 @@
     <string name="user_height">Height</string>
     <string name="result_bmi">Your BMI Result</string>
     <string name="imc_number">30,6</string>
-    <string name="class_imc">You have Class I Obesity.</string>
+    <string name="obesity_1">You have Class I Obesity.</string>
+    <string name="obesity_2">You have Class II Obesity.</string>
+    <string name="obesity_3">You have Class III Obesity.</string>
+    <string name="under_weight">You are underweight.</string>
+    <string name="normal">You have normal body weight!.</string>
+    <string name="over_weight">You are overweight.</string>
     <string name="result_age">Age</string>
-    <string name="number_age">50</string>
     <string name="result_Weight">Weight</string>
-    <string name="number_weight">97 kg</string>
-    <string name="result_high">High</string>
-    <string name="number_high">178 cm</string>
+    <string name="result_height">Height</string>
     <string name="button_result">New Calc</string>
+    <string name="underweight">Underweight</string>
+    <string name="normalcolumn">Normal</string>
+    <string name="overweight">Overweight</string>
+    <string name="obesity1">Obesity Class I</string>
+    <string name="obesity2">Obesity Class II</string>
+    <string name="obesity3">Obesity Class III</string>
 </resources>

@@ -5,6 +5,7 @@
     <string name="your_name">Qual é o seu nome?</string>
     <string name="next">Próximo</string>
     <string name="hi_userdatascreen">Olá</string>
+    <string name="name_error_message">O nome é obrigatório!</string>
     <string name="male_userdatasreen">Masculino</string>
     <string name="female_userdatascreen">Feminino</string>
     <string name="user_age">Idade</string>
@@ -15,12 +16,20 @@
     <string name="avatar_male">Avatar Masculino</string>
     <string name="result_bmi">Seu resultado do BMI</string>
     <string name="imc_number">30,6</string>
-    <string name="class_imc">Você tem obesidade Classe I.</string>
+    <string name="obesity_1">Você está com Obesidade Classe I.</string>
+    <string name="obesity_2">Você está com Obesidade Classe II.</string>
+    <string name="obesity_3">Você está com Obesidade Classe III.</string>
+    <string name="under_weight">Você está abaixo do peso.</string>
+    <string name="normal">Você está com o peso normal.</string>
+    <string name="over_weight">Você está acima do peso.</string>
     <string name="result_age">Idade</string>
-    <string name="number_age">50</string>
     <string name="result_Weight">Peso</string>
-    <string name="number_weight">97 kg</string>
-    <string name="result_high">Altura</string>
-    <string name="number_high">178 cm</string>
+    <string name="result_height">Altura</string>
     <string name="button_result">New Calc</string>
+    <string name="underweight">Abaixo do peso</string>
+    <string name="normalcolumn">Normal</string>
+    <string name="overweight">Acima do peso</string>
+    <string name="obesity1">Obesidade Classe I</string>
+    <string name="obesity2">Obesidade Classe II</string>
+    <string name="obesity3">Obesidade Classe III</string>
 </resources>

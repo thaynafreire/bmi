@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Height
@@ -23,7 +24,6 @@ import androidx.compose.material.icons.filled.Scale
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -33,19 +33,21 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import br.senai.sp.jandira.bmi.R
 
 @Composable
-fun UserDataScreen(modifier: Modifier = Modifier){
+fun UserDataScreen(navegacao: NavHostController?) {
 
     //textfields escrever
     var ageState = remember {
@@ -230,7 +232,11 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                                     contentDescription = "",
                                     tint = Color(0xff343434)
                                 )
-                            }
+                            },
+                            keyboardOptions = KeyboardOptions(
+                                keyboardType = KeyboardType.Number,
+                                imeAction = ImeAction.Next
+                            )
                         )
                         OutlinedTextField(
                             value = weightState.value,
@@ -259,7 +265,11 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                                     contentDescription = "",
                                     tint = Color(0xff343434)
                                 )
-                            }
+                            },
+                            keyboardOptions = KeyboardOptions(
+                                keyboardType = KeyboardType.Number,
+                                imeAction = ImeAction.Next
+                            )
                         )
                         OutlinedTextField(
                             value = heightState.value,
@@ -282,7 +292,11 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                                     contentDescription = "",
                                     tint = Color(0xff343434)
                                 )
-                            }
+                            },
+                            keyboardOptions = KeyboardOptions(
+                                keyboardType = KeyboardType.Decimal,
+                                imeAction = ImeAction.Done
+                            )
                         )
                         Button(
                             onClick = {
@@ -290,6 +304,7 @@ fun UserDataScreen(modifier: Modifier = Modifier){
                                 editor.putInt("user_weight", weightState.value.toInt())
                                 editor.putFloat("user_height", heightState.value.toFloat())
                                 editor.apply()
+                                navegacao!!.navigate("resultado")
                             },
                             shape = RoundedCornerShape(15.dp),
                             colors = ButtonDefaults.buttonColors(
@@ -321,5 +336,5 @@ fun UserDataScreen(modifier: Modifier = Modifier){
 @Preview(showSystemUi = true)
 @Composable
 private fun UserDataScreenPreview(){
-    UserDataScreen()
+    UserDataScreen(null)
 }

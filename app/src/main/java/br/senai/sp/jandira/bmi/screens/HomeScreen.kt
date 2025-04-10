@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Create
+import androidx.compose.material.icons.filled.Error
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -40,10 +41,14 @@ import androidx.navigation.NavHostController
 import br.senai.sp.jandira.bmi.R
 
 @Composable
-fun HomeScreen(navegacao: NavHostController) {
+fun HomeScreen(navegacao: NavHostController?) {
     //variavel para o text field escrever
     var nameState = remember {
         mutableStateOf("")
+    }
+
+    var isErrorState = remember {
+        mutableStateOf(false)
     }
 
     //abrir ou criar um arquivo SharedPreferences
@@ -53,6 +58,7 @@ fun HomeScreen(navegacao: NavHostController) {
 
     //colocar o arquivo em modo de edicao
     val editor = userFile.edit()
+
 
     Box(
         modifier = Modifier
@@ -153,16 +159,37 @@ fun HomeScreen(navegacao: NavHostController) {
                                     contentDescription = "",
                                     tint = Color(0xff343434)
                                 )
-                            }
+                            },
+                            trailingIcon = {
+                                if (isErrorState.value){
+                                    Icon(
+                                        imageVector = Icons.Default.Error,
+                                        contentDescription = "",
+                                        tint = Color(0xff9b111e)
+                                    )
+                                }
+                            },
+                            isError = isErrorState.value,
+                            supportingText = {
+                                if (isErrorState.value){
+                                    Text(
+                                        text = stringResource(R.string.name_error_message)
+                                    )
+                                }
 
+                            }
                         )
 
                         }
                     Button(
                         onClick = {
-                            editor.putString("user_name", nameState.value)
-                            editor.apply()
-                            navegacao.navigate("dados")
+                            if(nameState.value.isEmpty()){
+                                isErrorState.value = true
+                            } else{
+                                editor.putString("user_name", nameState.value)
+                                editor.apply()
+                                navegacao!!.navigate("dados")
+                            }
                         },
                         shape = RoundedCornerShape(8.dp)
 
@@ -183,5 +210,5 @@ fun HomeScreen(navegacao: NavHostController) {
 @Preview(showSystemUi = true)
 @Composable
 private fun HomeScreenPreview(){
-    //HomeScreen(navegacao)
+    HomeScreen(null)
 }
